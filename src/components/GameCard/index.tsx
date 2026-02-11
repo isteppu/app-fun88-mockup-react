@@ -18,19 +18,19 @@ const GameCard = ({ game }: GameCardProps) => {
                     alt={game.name}
                     className="w-full h-full object-cover"
                 />
-
-                <div className="absolute top-2 left-2 right-2 flex justify-between items-start">
+                
+                <div className="absolute top-2 left-2 right-2 flex justify-between items-start z-20">
                     {isHot ? (
                         <img
                             src="/game-icons/hot.webp"
                             alt="Hot"
-                            className="w-10 h-10 drop-shadow-md"
+                            className="w-8 h-10 drop-shadow-md"
                         />
                     ) : <div />}
 
                     <button
                         onClick={() => setIsFav(!isFav)}
-                        className="p-1.5 transition-transform active:scale-125"
+                        className="transition-transform active:scale-125"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -43,24 +43,10 @@ const GameCard = ({ game }: GameCardProps) => {
                     </button>
                 </div>
 
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none group-hover:pointer-events-auto">
-                    <button className="bg-blue-600 text-white px-6 py-2 rounded-full font-bold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                        PLAY
-                    </button>
-                </div>
-            </div>
-
-            <div className="mt-2 px-1">
-                <h3 className="text-xs md:text-sm font-bold text-slate-800 uppercase leading-tight truncate">
-                    {game.name}
-                </h3>
-                <div className="flex items-center gap-1 mt-0.5">
-                    <img
-                        src={'/providers/' + game.provider + '.webp'}
-                        alt={game.provider}
-                        className="h-3 opacity-60 grayscale"
-                    />
-                </div>
+                <div
+                    className="absolute top-0 right-0 w-15 h-15 bg-black/40 z-10"
+                    style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%)' }}
+                />
             </div>
         </div>
     );

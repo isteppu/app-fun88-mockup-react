@@ -23,7 +23,7 @@ const BannerCarousel = () => {
     }
 
     return (
-        <div className="relative group w-full overflow-hidden rounded-2xl shadow-sm bg-slate-100">
+        <div className="relative group w-full overflow-hidden rounded-2xl bg-slate-100">
             <div
                 className="flex transition-transform duration-500 ease-out"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}

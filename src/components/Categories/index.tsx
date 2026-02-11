@@ -9,7 +9,7 @@ const CategoriesCarousel = () => {
     if (!categoriesLoaded) return <div className='w-full h-6 rounded-2xl my-2 bg-slate-200 animate-pulse aspect-21/9 md:aspect-3/1'></div>;
 
     return (
-        <div className="w-full py-4 space-y-2">
+        <div className="w-full pt-2 space-y-2">
             <div
                 ref={scrollRef}
                 className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 scroll-smooth"

@@ -27,7 +27,7 @@ const ProviderCarousel = () => {
     if (!gamesLoaded) return <div className='w-full h-6 rounded-2xl my-2 bg-slate-200 animate-pulse aspect-21/9 md:aspect-3/1'></div>;
 
     return (
-        <div className="w-full py-4 space-y-4">
+        <div className="w-full pt-2 space-y-4">
             <div className="flex items-center justify-between px-2">
                 <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
                     Game Providers
