@@ -39,6 +39,14 @@ export const banners = [
 
 export const categories = [
     {
+        label: "New",
+        img: "/icons/new.webp"
+    },
+    {
+        label: "Hot",
+        img: "/icons/hot.webp"
+    },
+    {
         label: "Slots",
         img: "/icons/slots.webp"
     },
@@ -49,14 +57,6 @@ export const categories = [
     {
         label: "Table Games",
         img: "/icons/table-games.webp"
-    },
-    {
-        label: "Hot",
-        img: "/icons/hot.webp"
-    },
-    {
-        label: "New",
-        img: "/icons/new.webp"
     }
 ]
 

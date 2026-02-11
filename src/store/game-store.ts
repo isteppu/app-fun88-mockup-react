@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { gameService } from '../services/data';
-import type { Banner, GameState } from '../types';
+import type { Banner, Category, GameState } from '../types';
 
 export const useGameStore = create<GameState>()(
   persist(
@@ -11,6 +11,7 @@ export const useGameStore = create<GameState>()(
       categories: [],
       bannersLoaded: false,
       gamesLoaded: false,
+      categoriesLoaded: false,
 
       fetchBanners: async () => {
         if (get().bannersLoaded) return;
@@ -27,15 +28,15 @@ export const useGameStore = create<GameState>()(
       },
 
       fetchCategories: async () => {
-        if (get().gamesLoaded) return;
+        if (get().categoriesLoaded) return;
         
         const data = await gameService.getCategories();
-        set({ categories: data, gamesLoaded: true });
+        set({ categories: data as Category[], categoriesLoaded: true });
       },
     }),
     {
       name: 'casino-storage',
-      partialize: (state) => ({ banners: state.banners, games: state.games }),
+      partialize: (state) => ({ banners: state.banners, games: state.games, categories: state.categories }),
     }
   )
 );

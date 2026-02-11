@@ -5,11 +5,13 @@ import Footer from './Footer';
 import { useGameStore } from '../store/game-store';
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
-    const { fetchGames } = useGameStore();
-    
+    const { fetchGames, fetchCategories, fetchBanners} = useGameStore();
+
     useEffect(() => {
         fetchGames();
-    }, [fetchGames]);
+        fetchCategories();
+        fetchBanners();
+    }, [fetchGames, fetchBanners, fetchCategories]);
 
     return (
         <div className="flex flex-col min-h-screen bg-white text-slate-900">

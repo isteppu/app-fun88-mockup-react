@@ -30,14 +30,11 @@ export const gameService = {
         });
     },
 
-    getCategories: async (): Promise<Category[]> => {
+    getCategories: async () => {
         return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(categories);
-            }, 3000);
+            setTimeout(() => resolve(categories), 3000);
         });
     },
-
 
     getBanners: async () => {
         return new Promise((resolve) => {

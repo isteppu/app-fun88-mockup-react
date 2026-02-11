@@ -29,6 +29,7 @@ export interface GameState {
   categories: Category[];
   bannersLoaded: boolean;
   gamesLoaded: boolean;
+  categoriesLoaded: boolean;
   
   fetchBanners: () => Promise<void>;
   fetchGames: () => Promise<void>;

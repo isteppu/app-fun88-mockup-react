@@ -1,58 +1,38 @@
 import { useRef } from 'react';
 import { useGameStore } from '../../store/game-store';
+import CategoryButton from '../CategoryButton';
 
 const CategoriesCarousel = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
-    const { categories, gamesLoaded } = useGameStore();
+    const { categories, categoriesLoaded } = useGameStore();
 
-
-    const scroll = (direction: 'left' | 'right') => {
-        if (scrollRef.current) {
-            const { scrollLeft, clientWidth } = scrollRef.current;
-            const scrollTo = direction === 'left'
-                ? scrollLeft - clientWidth / 2
-                : scrollLeft + clientWidth / 2;
-
-            scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
-        }
-    };
-
-    if (!gamesLoaded) return <div>Loading Providers...</div>;
+    if (!categoriesLoaded) return <div>Loading Categories...</div>;
 
     return (
-        <div className="w-full py-4 space-y-4">
-            <div className="flex items-center justify-between px-2">
-                <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-                    Game Providers
-                </h2>
-
-                <div className="flex gap-1">
-                    <button
-                        onClick={() => scroll('left')}
-                        className="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md transition-all border border-slate-200"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                        </svg>
-                    </button>
-                    <button
-                        onClick={() => scroll('right')}
-                        className="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md transition-all border border-slate-200"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
+        <div className="w-full py-4 space-y-2">
 
             <div
                 ref={scrollRef}
-                className="flex gap-4 overflow-x-auto scrollbar-hide px-2 pb-2 scroll-smooth"
+                className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 scroll-smooth"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
+                <button
+                    className="shrink-0 flex flex-col items-center justify-between gap-1 px-3 py-3 bg-white transition-all min-w-180px"
+                >
+                    <img
+                        src={'/icons/search.webp'}
+                        alt="Search Button"
+                        className="h-6 object-contain grayscale hover:grayscale-0 transition-all"
+                        onError={(e) => (e.currentTarget.src = 'https://via.placeholder.com/100x40?text=Search')}
+                    />
+                    <span className="text-slate-400 font-medium text-xs">
+                        Search
+                    </span>
+                </button>
+
+                <div className="border-l-2 border-gray-300 h-auto"></div>
                 {categories.map((category) => (
-                    <></>
+                    <CategoryButton label={category.label} img={category.img} />
                 ))}
             </div>
         </div>

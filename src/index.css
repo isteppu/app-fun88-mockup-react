@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
-
 :root {
-    /* This forces browser UI elements like scrollbars to stay light */
-    color-scheme: light !important;
+  color-scheme: light !important;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
   }
-  
-  /* Prevents system dark mode from applying generic dark backgrounds */
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #ffffff;
-      color: #000000;
-    }
-  }
+}
