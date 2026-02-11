@@ -1,0 +1,29 @@
+import type { Banner } from "./banner";
+
+export interface Game {
+    name: string;
+    provider: string;
+    img: string;
+    categories: string[];
+}
+
+export interface FetchParams {
+    category?: string;
+    provider?: string;
+    search?: string;
+    limit?: number;
+}
+
+export interface ProviderStats {
+    [providerName: string]: number;
+}
+
+export interface GameState {
+  banners: Banner[];
+  games: Game[];
+  bannersLoaded: boolean;
+  gamesLoaded: boolean;
+  
+  fetchBanners: () => Promise<void>;
+  fetchGames: () => Promise<void>;
+}

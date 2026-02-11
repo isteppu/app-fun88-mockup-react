@@ -1,10 +1,13 @@
+import BannerCarousel from "../components/Banner"
+import ProviderCarousel from "../components/Providers"
 import MainLayout from "../layouts/MainLayout"
 
 const Home = () => {
   return (
     <div>
       <MainLayout >
-        Home
+        <BannerCarousel />
+        <ProviderCarousel />
       </MainLayout>
     </div>
   )
