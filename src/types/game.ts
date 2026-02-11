@@ -7,6 +7,11 @@ export interface Game {
     categories: string[];
 }
 
+export interface Category {
+    label: string;
+    img: string;
+}
+
 export interface FetchParams {
     category?: string;
     provider?: string;
@@ -21,9 +26,11 @@ export interface ProviderStats {
 export interface GameState {
   banners: Banner[];
   games: Game[];
+  categories: Category[];
   bannersLoaded: boolean;
   gamesLoaded: boolean;
   
   fetchBanners: () => Promise<void>;
   fetchGames: () => Promise<void>;
+  fetchCategories: () => Promise<void>;
 }

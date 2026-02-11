@@ -8,6 +8,7 @@ export const useGameStore = create<GameState>()(
     (set, get) => ({
       banners: [],
       games: [],
+      categories: [],
       bannersLoaded: false,
       gamesLoaded: false,
 
@@ -23,6 +24,13 @@ export const useGameStore = create<GameState>()(
         
         const data = await gameService.getGames();
         set({ games: data, gamesLoaded: true });
+      },
+
+      fetchCategories: async () => {
+        if (get().gamesLoaded) return;
+        
+        const data = await gameService.getCategories();
+        set({ categories: data, gamesLoaded: true });
       },
     }),
     {

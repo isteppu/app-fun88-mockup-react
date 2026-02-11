@@ -3,11 +3,7 @@ import { useGameStore } from '../../store/game-store';
 
 const BannerCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const { banners, bannersLoaded, fetchBanners } = useGameStore();
-
-    useEffect(() => {
-        fetchBanners();
-    }, [fetchBanners]);
+    const { banners, bannersLoaded } = useGameStore();
 
     useEffect(() => {
         const timer = setInterval(nextSlide, 5000);

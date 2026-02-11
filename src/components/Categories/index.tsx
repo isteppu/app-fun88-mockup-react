@@ -1,17 +1,10 @@
 import { useRef } from 'react';
 import { useGameStore } from '../../store/game-store';
-import ProviderButton from '../ProviderButton';
 
-const ProviderCarousel = () => {
+const CategoriesCarousel = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
-    const { games, gamesLoaded } = useGameStore();
+    const { categories, gamesLoaded } = useGameStore();
 
-    const providerStats = games.reduce((acc: Record<string, number>, game) => {
-        acc[game.provider] = (acc[game.provider] || 0) + 1;
-        return acc;
-    }, {});
-
-    const providerList = Object.entries(providerStats);
 
     const scroll = (direction: 'left' | 'right') => {
         if (scrollRef.current) {
@@ -58,12 +51,12 @@ const ProviderCarousel = () => {
                 className="flex gap-4 overflow-x-auto scrollbar-hide px-2 pb-2 scroll-smooth"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-                {providerList.map(([provider, count]) => (
-                    <ProviderButton key={provider} provider={provider} count={count} />
+                {categories.map((category) => (
+                    <></>
                 ))}
             </div>
         </div>
     );
 };
 
-export default ProviderCarousel;
+export default CategoriesCarousel;

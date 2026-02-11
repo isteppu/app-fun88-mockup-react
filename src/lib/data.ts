@@ -38,11 +38,26 @@ export const banners = [
 ]
 
 export const categories = [
-    "Slots",
-    "Table Games",
-    "Arcade",
-    "Hot",
-    "New"
+    {
+        label: "Slots",
+        img: "/icons/slots.webp"
+    },
+    {
+        label: "Crash",
+        img: "/icons/crash.webp"
+    },
+    {
+        label: "Table Games",
+        img: "/icons/table-games.webp"
+    },
+    {
+        label: "Hot",
+        img: "/icons/hot.webp"
+    },
+    {
+        label: "New",
+        img: "/icons/new.webp"
+    }
 ]
 
 export const games = [
@@ -104,7 +119,7 @@ export const games = [
         name: "Bouncy Bombs",
         provider: "hacksaw",
         img: "/games/bouncy-bombs.webp",
-        categories: ["Arcade", "Hot", "New"]
+        categories: ["Crash", "Hot", "New"]
     },
     {
         name: "Buffalo Lightning",
@@ -116,7 +131,7 @@ export const games = [
         name: "Cosmic Cash",
         provider: "pragmaticplay",
         img: "/games/cosmic-smash.webp",
-        categories: ["Arcade", "Hot", "New"]
+        categories: ["Crash", "Hot", "New"]
     },
     {
         name: "Day of Dead",
@@ -146,7 +161,7 @@ export const games = [
         name: "Fist of Destruction",
         provider: "hacksaw",
         img: "/games/fist-of-destruction.webp",
-        categories: ["Arcade", "Hot"]
+        categories: ["Crash", "Hot"]
     },
     {
         name: "Fortune Dragon",
@@ -188,7 +203,7 @@ export const games = [
         name: "Fruit Duel",
         provider: "hacksaw",
         img: "/games/fruit-duel.webp",
-        categories: ["Arcade", "Hot"]
+        categories: ["Crash", "Hot"]
     },
     {
         name: "Gates of Olympus",
@@ -212,13 +227,13 @@ export const games = [
         name: "La Calaca",
         provider: "zitro",
         img: "/games/la-calaca.webp",
-        categories: ["Arcade", "Hot", "New"]
+        categories: ["Crash", "Hot", "New"]
     },
     {
         name: "Mammoth Gold",
         provider: "skywind",
         img: "/games/mammoth-gold.webp",
-        categories: ["Arcade", "Hot", "New"]
+        categories: ["Crash", "Hot", "New"]
     },
     {
         name: "Maya Jackpot",
@@ -242,19 +257,19 @@ export const games = [
         name: "Pinata Wins",
         provider: "pgsoft",
         img: "/games/pinata-wins.webp",
-        categories: ["Arcade", "Hot", "New"]
+        categories: ["Crash", "Hot", "New"]
     },
     {
         name: "Power Mania Bonus",
         provider: "zitro",
         img: "/games/power-mania-bonus.webp",
-        categories: ["Arcade", "New"]
+        categories: ["Crash", "New"]
     },
     {
         name: "Rain Balls",
         provider: "skywind",
         img: "/games/rain-balls.webp",
-        categories: ["Arcade", "New"]
+        categories: ["Crash", "New"]
     },
     {
         name: "Ramses",
@@ -266,7 +281,7 @@ export const games = [
         name: "Samur A.I.",
         provider: "skywind",
         img: "/games/samur-ai.webp",
-        categories: ["Arcade", "New"]
+        categories: ["Crash", "New"]
     },
     {
         name: "Sugar Bonanza Deluxe",
@@ -278,7 +293,7 @@ export const games = [
         name: "Sugar Rush",
         provider: "pragmaticplay",
         img: "/games/sugar-rush.webp",
-        categories: ["Arcade", "New"]
+        categories: ["Crash", "New"]
     },
     {
         name: "Sugar Rush 1000",
@@ -296,13 +311,13 @@ export const games = [
         name: "Super Lion",
         provider: "skywind",
         img: "/games/super-lion.webp",
-        categories: ["Arcade", "New"]
+        categories: ["Crash", "New"]
     },
     {
         name: "The Ripper",
         provider: "skywind",
         img: "/games/the-ripper.webp",
-        categories: ["Arcade", "Hot"]
+        categories: ["Crash", "Hot"]
     }
 ]
 

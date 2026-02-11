@@ -1,5 +1,5 @@
-import { games, banners } from '../lib/data';
-import type { FetchParams, Game } from '../types';
+import { games, banners, categories } from '../lib/data';
+import type { Category, FetchParams, Game } from '../types';
 
 export const gameService = {
     getGames: async (params?: FetchParams): Promise<Game[]> => {
@@ -26,6 +26,14 @@ export const gameService = {
                 }
 
                 resolve(params?.limit ? filteredGames.slice(0, params.limit) : filteredGames);
+            }, 3000);
+        });
+    },
+
+    getCategories: async (): Promise<Category[]> => {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(categories);
             }, 3000);
         });
     },
