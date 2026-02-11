@@ -1,5 +1,6 @@
 import BannerCarousel from "../components/Banner"
 import CategoriesCarousel from "../components/Categories"
+import GameGrid from "../components/GameGrid"
 import ProviderCarousel from "../components/Providers"
 import MainLayout from "../layouts/MainLayout"
 
@@ -10,6 +11,7 @@ const Home = () => {
         <BannerCarousel />
         <ProviderCarousel />
         <CategoriesCarousel />
+        <GameGrid />
       </MainLayout>
     </div>
   )

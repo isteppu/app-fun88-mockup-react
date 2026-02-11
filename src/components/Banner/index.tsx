@@ -6,7 +6,7 @@ const BannerCarousel = () => {
     const { banners, bannersLoaded } = useGameStore();
 
     useEffect(() => {
-        const timer = setInterval(nextSlide, 5000);
+        const timer = setInterval(nextSlide, 2000);
         return () => clearInterval(timer);
     }, [currentIndex]);
 

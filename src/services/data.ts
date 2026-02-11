@@ -1,5 +1,5 @@
 import { games, banners, categories } from '../lib/data';
-import type { Category, FetchParams, Game } from '../types';
+import type { FetchParams, Game } from '../types';
 
 export const gameService = {
     getGames: async (params?: FetchParams): Promise<Game[]> => {

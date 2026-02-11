@@ -5,6 +5,8 @@ export interface Game {
     provider: string;
     img: string;
     categories: string[];
+    isFavorite?: boolean;
+    jackpotValue?: string;
 }
 
 export interface Category {
@@ -24,14 +26,14 @@ export interface ProviderStats {
 }
 
 export interface GameState {
-  banners: Banner[];
-  games: Game[];
-  categories: Category[];
-  bannersLoaded: boolean;
-  gamesLoaded: boolean;
-  categoriesLoaded: boolean;
-  
-  fetchBanners: () => Promise<void>;
-  fetchGames: () => Promise<void>;
-  fetchCategories: () => Promise<void>;
+    banners: Banner[];
+    games: Game[];
+    categories: Category[];
+    bannersLoaded: boolean;
+    gamesLoaded: boolean;
+    categoriesLoaded: boolean;
+
+    fetchBanners: () => Promise<void>;
+    fetchGames: () => Promise<void>;
+    fetchCategories: () => Promise<void>;
 }
