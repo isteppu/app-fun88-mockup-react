@@ -37,6 +37,37 @@ export const banners = [
     }
 ]
 
+export const providers = [
+    {
+        name: "skywind",
+        img: "/providers/skywind.webp"
+    },
+    {
+        name: "pragmaticplay",
+        img: "/providers/pragmaticplay.webp"
+    },
+    {
+        name: "zitro",
+        img: "/providers/zitro.webp"
+    },
+    {
+        name: "hacksaw",
+        img: "/providers/hacksaw.webp"
+    },
+    {
+        name: "jili",
+        img: "/providers/jili.webp"
+    },
+    {
+        name: "pgsoft",
+        img: "/providers/pgsoft.webp"
+    },
+    {
+        name: "winfast",
+        img: "/providers/winfast.webp"
+    }
+]
+
 export const categories = [
     {
         label: "New",

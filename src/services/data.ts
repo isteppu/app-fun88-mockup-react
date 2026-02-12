@@ -1,31 +1,11 @@
-import { games, banners, categories } from '../lib/data';
-import type { FetchParams, Game } from '../types';
+import { games, banners, categories, providers } from '../lib/data';
+import type { Game } from '../types';
 
 export const gameService = {
-    getGames: async (params?: FetchParams): Promise<Game[]> => {
+    getGames: async (): Promise<Game[]> => {
         return new Promise((resolve) => {
             setTimeout(() => {
-                let filteredGames = [...games];
-
-                if (params?.category) {
-                    filteredGames = filteredGames.filter(g =>
-                        g.categories.includes(params.category!)
-                    );
-                }
-
-                if (params?.provider) {
-                    filteredGames = filteredGames.filter(g =>
-                        g.provider === params.provider
-                    );
-                }
-
-                if (params?.search) {
-                    filteredGames = filteredGames.filter(g =>
-                        g.name.toLowerCase().includes(params.search!.toLowerCase())
-                    );
-                }
-
-                resolve(params?.limit ? filteredGames.slice(0, params.limit) : filteredGames);
+                resolve(games);
             }, 3000);
         });
     },
@@ -33,6 +13,12 @@ export const gameService = {
     getCategories: async () => {
         return new Promise((resolve) => {
             setTimeout(() => resolve(categories), 3000);
+        });
+    },
+
+    getProviders: async () => {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(providers), 3000);
         });
     },
 

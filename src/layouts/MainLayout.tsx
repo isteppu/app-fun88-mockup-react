@@ -1,31 +1,44 @@
 import { useEffect, type ReactNode } from 'react';
 import Navbar from './Navbar';
-import Sidebar from './Sidebar';
 import Footer from './Footer';
 import { useGameStore } from '../store/game-store';
+import { useUserStore } from '../store/user-store';
+import BottomBar from './BottomBar';
+import { CloseExpandIcon } from '../assets/Icons';
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
-    const { fetchGames, fetchCategories, fetchBanners} = useGameStore();
+    const { fetchGames, fetchCategories, fetchBanners, fetchProviders } = useGameStore();
+    const isFullscreen = useUserStore(state => state.isFullscreen);
 
     useEffect(() => {
         fetchGames();
         fetchCategories();
         fetchBanners();
-    }, [fetchGames, fetchBanners, fetchCategories]);
+        fetchProviders();
+    }, []);
 
     return (
-        <div className="flex flex-col min-h-screen bg-white text-slate-900">
-            <header className="sticky top-0 z-50">
+        <div className="main-layout">
+            <header>
                 <Navbar />
             </header>
 
-            <div className="flex flex-1">
-                <Sidebar />
-                <main className="flex-1 flex flex-col overflow-x-hidden">
-                    <div className="p-4 md:p-6 lg:p-8 bg-white">
+            <div className="main-layout-content">
+                <main>
+                    <div className="children">
                         {children}
                     </div>
                     <Footer />
+                    <BottomBar />
+
+                    {isFullscreen && (
+                        <button
+                            onClick={() => useUserStore.getState().toggleFullscreen()}
+                            className="close-expand"
+                        >
+                           <CloseExpandIcon />
+                        </button>
+                    )}
                 </main>
             </div>
         </div>

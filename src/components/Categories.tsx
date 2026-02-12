@@ -1,28 +1,31 @@
 import { useRef } from 'react';
-import { useGameStore } from '../../store/game-store';
-import CategoryButton from '../CategoryButton';
+import { useGameStore } from '../store/game-store';
+import CategoryButton from './CategoryButton';
+import SearchForm from './SearchForm';
+import { useUserStore } from '../store/user-store';
 
 const CategoriesCarousel = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
     const { categories, categoriesLoaded } = useGameStore();
+    const { toggleSearch, isSearching } = useUserStore();
 
-    if (!categoriesLoaded) return <div className='w-full h-6 rounded-2xl my-2 bg-slate-200 animate-pulse aspect-21/9 md:aspect-3/1'></div>;
+    if (!categoriesLoaded) return <div className='filter-carousel-skeleton'></div>;
 
     return (
         <div className="w-full pt-2 space-y-2">
             <div
                 ref={scrollRef}
-                className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 scroll-smooth"
+                className="categories-carousel scrollbar-hide"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
                 <button
-                    className="shrink-0 flex flex-col items-center justify-between gap-1 px-3 py-3 bg-white transition-all min-w-180px"
+                    style={{ backgroundColor: `${ isSearching ? 'white' : '#E6E6F2' }`, minWidth: '50px' }}
+                    onClick={toggleSearch}
                 >
                     <img
                         src={'/icons/search.webp'}
                         alt="Search Button"
-                        className="h-6 object-contain grayscale hover:grayscale-0 transition-all"
-                        onError={(e) => (e.currentTarget.src = 'https://via.placeholder.com/100x40?text=Search')}
+                        className="h-6 object-contain"
                     />
                     <span className="text-slate-400 font-medium text-xs">
                         Search
@@ -34,6 +37,7 @@ const CategoriesCarousel = () => {
                     <CategoryButton label={category.label} img={category.img} />
                 ))}
             </div>
+            <SearchForm />
         </div>
     );
 };

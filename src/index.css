@@ -5,7 +5,7 @@
 }
 
 button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,4 +13,183 @@ button:hover {
     background-color: #ffffff;
     color: #000000;
   }
+}
+
+@layer components {
+  .navbar {
+    @apply h-16 bg-white fixed top-0 w-full z-100;
+  }
+
+  .navbar nav {
+    @apply h-16 bg-white text-slate-900 flex items-center px-6 border-b border-slate-200 shadow-sm;
+  }
+
+  .navbar nav img {
+    @apply w-auto h-5;
+  }
+
+  .main-layout {
+    @apply flex flex-col min-h-screen bg-white text-slate-900;
+  }
+
+  .main-layout header {
+    @apply sticky top-0 z-50;
+  }
+
+  .main-layout-content {
+    @apply flex flex-1;
+  } 
+
+  .main-layout-content main {
+    @apply flex-1 flex flex-col overflow-x-hidden;
+  }
+
+  .main-layout-content .children {
+    @apply p-4 md:p-6 lg:p-8 bg-white;
+  }
+
+  .main-layout-content main .close-expand {
+    @apply fixed bottom-6 right-6 border border-blue-500 text-blue-500 p-3 rounded-full shadow-2xl z-110 bg-white/50 hover:bg-white;
+  }
+
+  .banner-carousel {
+    @apply relative w-full overflow-hidden rounded-2xl bg-slate-100;
+  }
+
+  .banner-div {
+    @apply flex transition-transform duration-500 ease-out;
+  }
+
+  .categories-carousel {
+    @apply flex gap-2 overflow-x-auto pb-2 scroll-smooth px-2;
+  }
+
+  .categories-carousel button {
+    @apply shrink-0 flex flex-col items-center justify-between gap-1 px-3 py-3 transition-all rounded-md;
+  }
+
+  .game-grid {
+    @apply grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-2 gap-y-3 p-2;
+  }
+
+  .game-grid-skeleton {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-2;
+  }
+
+  .game-grid-skeleton div {
+    @apply aspect-square bg-slate-200 rounded-2xl animate-pulse;
+  }
+
+  .game-grid-nogamesfound {
+    @apply flex flex-col items-center justify-center py-20 text-slate-400;
+  }
+
+  .game-card-thumb {
+    @apply relative aspect-square rounded-2xl overflow-hidden shadow-sm bg-slate-100 transition-transform duration-300 group-hover:shadow-md;
+  }
+
+  .game-card-thumb .overlay-black {
+    @apply absolute top-0 right-0 w-15 h-15 bg-black/40 z-10;
+  }
+
+  .game-card-thumb-overlay {
+    @apply absolute top-2 left-2 right-2 flex justify-between items-start z-20;
+  }
+
+  .game-card-thumb-overlay button {
+    @apply transition-transform active:scale-125;
+  }
+
+  .game-card-thumb-overlay button svg {
+    @apply w-6 h-6 drop-shadow-md stroke-white/30 stroke-1;
+  }
+
+  .game-card-thumb img {
+    @apply w-full h-full object-cover group-hover:scale-105 transition-transform duration-300;
+  }
+
+  .game-overlay {
+    @apply absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center;
+  }
+
+  .provider-button {
+    @apply shrink-0 flex items-center justify-between gap-4 px-4 py-3 bg-neutral-100 border border-slate-100 rounded-xl hover:shadow-md transition-all;
+  }
+
+  .provider-button img {
+    @apply h-6 object-contain transition-all;
+  }
+
+  .provider-button span {
+    @apply text-slate-400 font-medium text-xs;
+  }
+
+  .filter-carousel-skeleton {
+    @apply w-full h-6 rounded-2xl my-2 bg-slate-200 animate-pulse aspect-21/9 md:aspect-3/1;
+  }
+
+  .providers-carousel {
+    @apply w-full pt-2 space-y-4;
+  }
+
+  .providers-label-div {
+    @apply flex items-center justify-between px-2;
+  }
+
+  .providers-label-div h2 {
+    @apply text-xl font-bold text-slate-800 flex items-center gap-2;
+  }
+
+  .providers-label-div div {
+    @apply flex gap-1;
+  }
+
+  .providers-label-div div button {
+    @apply p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md transition-all border border-slate-200;
+  }
+
+  .provider-buttons-div {
+    @apply flex gap-4 overflow-x-auto px-2 pb-2 ;
+  }
+
+  .search-form {
+    @apply h-16 bg-white w-full;
+  }
+
+  .search-form-div {
+    @apply flex items-center px-2 w-full gap-2;
+  }
+
+  .search-form-div div {
+    @apply flex items-center rounded-sm bg-white pl-3 border border-gray-400/50 w-full;
+  }
+
+  .search-form-div div img {
+    @apply shrink-0 select-none h-6 object-contain grayscale hover:grayscale-0 transition-all;
+  }
+
+  .search-form-div div input {
+    @apply block min-w-0 grow bg-white py-1.5 pr-3 pl-1 text-base text-black placeholder:text-gray-500 focus:outline-none sm:text-sm/6;
+  }
+
+  .bottom-bar {
+    @apply md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-100 h-16 px-4;
+  }
+
+  .bottom-bar-div {
+    @apply flex items-center justify-around h-full;
+  }
+
+  .bottom-bar-div button {
+    @apply flex flex-col items-center gap-1 text-slate-400 hover:text-blue-600 transition-colors;
+  }
+
+  .bottom-bar-div button span {
+    @apply text-[10px] font-bold uppercase tracking-tighter;
+  }
+
+  .footer-div {
+    @apply bg-slate-100 border-t border-slate-200 p-8 text-slate-500 text-center;
+  }
+  
 }

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useGameStore } from '../../store/game-store';
+import { useGameStore } from '../store/game-store';
+import { useUserStore } from '../store/user-store';
 
 const BannerCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const { banners, bannersLoaded } = useGameStore();
+    const isFullscreen = useUserStore((state) => state.isFullscreen);
 
     useEffect(() => {
         const timer = setInterval(nextSlide, 2000);
@@ -23,9 +25,12 @@ const BannerCarousel = () => {
     }
 
     return (
-        <div className="relative group w-full overflow-hidden rounded-2xl bg-slate-100">
+        <div 
+            className="banner-carousel"
+            style={{ marginTop: isFullscreen ? '0' : '4rem' }}    
+        >
             <div
-                className="flex transition-transform duration-500 ease-out"
+                className="banner-div"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
                 {banners.map((banner, index) => (
