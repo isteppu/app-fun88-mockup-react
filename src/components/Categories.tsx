@@ -12,14 +12,15 @@ const CategoriesCarousel = () => {
     if (!categoriesLoaded) return <div className='filter-carousel-skeleton'></div>;
 
     return (
-        <div className="w-full pt-2 space-y-2">
+        <div className="w-full pt-2 space-y-2 md:flex">
             <div
                 ref={scrollRef}
                 className="categories-carousel scrollbar-hide"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
                 <button
-                    style={{ backgroundColor: `${ isSearching ? 'white' : '#E6E6F2' }`, minWidth: '50px' }}
+                    className='md:hidden'
+                    style={{ backgroundColor: `${isSearching ? '#E6E6F2' : 'white'}`, minWidth: '50px' }}
                     onClick={toggleSearch}
                 >
                     <img
@@ -32,7 +33,7 @@ const CategoriesCarousel = () => {
                     </span>
                 </button>
 
-                <div className="border-l-2 border-gray-300 h-auto"></div>
+                <div className="border-l-2 border-gray-300 h-auto md:hidden"></div>
                 {categories.map((category) => (
                     <CategoryButton label={category.label} img={category.img} />
                 ))}

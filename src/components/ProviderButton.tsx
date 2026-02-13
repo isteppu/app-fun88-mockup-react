@@ -6,7 +6,7 @@ const ProviderButton = ({ provider, count }: { provider: string, count: number }
         <button
             key={provider}
             className="provider-button"
-            style={{ backgroundColor: `${activeProvider === provider ? '#E6E6F2': '#F2F2F7' }`, minWidth: '120px' }}
+            style={{ backgroundColor: `${activeProvider === provider ? '#E6E6F2': '#F2F2F7' }` }}
             onClick={() => setActiveProvider(provider)}
         >
             <img

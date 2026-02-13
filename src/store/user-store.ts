@@ -12,7 +12,7 @@ export const useUserStore = create<UserState>()(
         }),
         {
             name: 'user-storage',
-            partialize: (state) => ({ isFullscreen: state.isFullscreen }),
+            partialize: (state) => ({ isFullscreen: state.isFullscreen, isSearching: state.isSearching }),
         }
     )
 );

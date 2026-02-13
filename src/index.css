@@ -21,7 +21,7 @@ button:hover {
   }
 
   .navbar nav {
-    @apply h-16 bg-white text-slate-900 flex items-center px-6 border-b border-slate-200 shadow-sm;
+    @apply h-16 bg-white text-slate-900 flex items-center px-6 border-slate-200 ;
   }
 
   .navbar nav img {
@@ -29,7 +29,7 @@ button:hover {
   }
 
   .main-layout {
-    @apply flex flex-col min-h-screen bg-white text-slate-900;
+    @apply flex flex-col min-h-screen bg-white text-slate-900 max-w-7xl justify-center mx-auto;
   }
 
   .main-layout header {
@@ -61,7 +61,7 @@ button:hover {
   }
 
   .categories-carousel {
-    @apply flex gap-2 overflow-x-auto pb-2 scroll-smooth px-2;
+    @apply flex gap-2 overflow-x-auto pb-2 scroll-smooth px-2 md:pr-10 md:overflow-x-visible;
   }
 
   .categories-carousel button {
@@ -73,7 +73,7 @@ button:hover {
   }
 
   .game-grid-skeleton {
-    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-2;
+    @apply grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-2;
   }
 
   .game-grid-skeleton div {
@@ -113,11 +113,11 @@ button:hover {
   }
 
   .provider-button {
-    @apply shrink-0 flex items-center justify-between gap-4 px-4 py-3 bg-neutral-100 border border-slate-100 rounded-xl hover:shadow-md transition-all;
+    @apply shrink-0 flex items-center justify-between gap-4 px-4 py-3 bg-neutral-100 border border-slate-100 rounded-xl hover:shadow-md transition-all md:w-40;
   }
 
   .provider-button img {
-    @apply h-6 object-contain transition-all;
+    @apply h-9 md:h-6 object-contain transition-all;
   }
 
   .provider-button span {
@@ -125,7 +125,7 @@ button:hover {
   }
 
   .filter-carousel-skeleton {
-    @apply w-full h-6 rounded-2xl my-2 bg-slate-200 animate-pulse aspect-21/9 md:aspect-3/1;
+    @apply w-full h-10 rounded-2xl my-2 bg-slate-200 animate-pulse aspect-21/9 md:aspect-3/1;
   }
 
   .providers-carousel {
@@ -153,11 +153,11 @@ button:hover {
   }
 
   .search-form {
-    @apply h-16 bg-white w-full;
+    @apply h-16 bg-white w-full flex py-3;
   }
 
   .search-form-div {
-    @apply flex items-center px-2 w-full gap-2;
+    @apply flex items-center px-4 w-full gap-2;
   }
 
   .search-form-div div {
