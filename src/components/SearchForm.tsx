@@ -18,7 +18,7 @@ const SearchForm = () => {
                             animate={{ y: 0 }}
                             exit={{ y: -20 }}
                             transition={{ duration: 0.3 }}
-                            className="search-form"
+                            className="search-form md:hidden"
                         >
                             <div className="search-form-div">
                                 <div>
